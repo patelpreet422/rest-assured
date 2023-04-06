@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "8.0.1"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // add rest assured testing dependency
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
+
+    // add reporting dependency for allure
+    testImplementation 'io.qameta.allure:allure-junit5:2.15.0'
+
+    // add jackson dependency
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+}
+
+test {
+    useJUnitPlatform()
+}

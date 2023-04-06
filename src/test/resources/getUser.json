@@ -1,0 +1,43 @@
+{
+  "name": "Get User",
+  "request": {
+    "method": "GET",
+    "url": "https://jsonplaceholder.typicode.com/users/1",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "morpheus",
+      "job": "leader"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headerVerifications": [
+      {
+        "type": "headerExists",
+        "headerName": "Content-Type"
+      },
+      {
+        "type": "headerEquals",
+        "headerName": "Content-Type",
+        "expectedValue": "application/json; charset=utf-8"
+      }
+    ],
+    "bodyVerifications": [
+      {
+        "type": "bodyContains",
+        "expectedValue": "{\"id\":1,\"name\":\"Leanne Graham\",\"username\":\"Bret\"}"
+      },
+      {
+        "type": "keyExists",
+        "jsonPath": "name"
+      },
+      {
+        "type": "valueEquals",
+        "jsonPath": "name",
+        "expectedValue": "Leanne Graham"
+      }
+    ]
+  }
+}
